@@ -26,16 +26,18 @@
     }
     
     .slide {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        padding: 60px;
-        overflow-y: auto;
-        animation: fadeIn 0.5s ease-in-out;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: white;
+    padding: 40px; /* Reduced from 60px */
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-in-out;
+    max-width: 1920px; /* Maximum width */
+    margin: 0 auto;
     }
     
     .slide.active {
@@ -76,7 +78,7 @@
     
     h3 {
         color: #C11007;
-        font-size: 27px;
+        font-size: 25px;
         font-weight: 600;
         margin-bottom: 20px;
         margin-top: 30px;
@@ -89,10 +91,12 @@
     }
     
     .content {
-        font-size: 23px;
-        line-height: 1.8;
-        color: #000;
-        padding-bottom: 100px; /* Add padding to ensure content doesn't hide behind navigation */
+    font-size: 18px; /* Reduced from 18px */
+    line-height: 1.3; /* Reduced from 1.8 */
+    color: #475569;
+    padding-bottom: 50px; /* Reduced from 100px */
+    max-height: calc(100vh - 160px); /* Account for padding and navigation */
+    overflow-y: auto;
     }
     
     ul, ol {
@@ -298,7 +302,7 @@
     
     .title-slide h1 {
         color: white;
-        font-size: 56px;
+        font-size: 47px;
         margin-bottom: 30px;
     }
     
@@ -314,25 +318,21 @@
     }
     
     @media (max-width: 768px) {
-        .slide {
-            padding: 40px 20px;
-        }
-        
-        h1 {
-            font-size: 32px;
-        }
-        
-        h2 {
-            font-size: 24px;
-        }
-        
-        .two-column {
-            grid-template-columns: 1fr;
-        }
-        
-        .content {
-            padding-bottom: 120px;
-        }
+    .slide {
+        padding: 30px;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    .content {
+        font-size: 14px;
+    }
     }
 	</style>
 </head>
@@ -892,15 +892,17 @@
             </div>
         </div>
         
-		<div class="slide">
-            <div class="content" style="text-align: center;">
-                <h3>Gram Stain of Urethral Smear</h3>
-                <img class="slide-image" src="https://github.com/prof-bandar/moh-sti/blob/main/13_ng-01.png" alt="Gram stain showing Neisseria gonorrhoeae">
-                <p style="margin-top: 15px; font-size: 16px;">
-                    <em>Image shows gram-negative intracellular diplococci (GNDC) within a polymorphonuclear leukocyte, characteristic of N. gonorrhoeae.</em>
-                </p>
-            </div>
-        </div>
+<div class="slide">
+    <div class="slide-header">
+        <div class="slide-number">Slide [NUMBER]</div>
+        <h2>[TITLE OF IMAGE]</h2>
+    </div>
+    <div class="content" style="display: flex; align-items: center; justify-content: center; height: calc(100vh - 200px);">
+        <img src="https://raw.githubusercontent.com/prof-bandar/moh-sti/refs/heads/main/1_syphillisA-01.png" 
+             alt="[Description of image]" 
+             style="max-width: 90%; max-height: 100%; object-fit: contain;">
+    </div>
+</div>
 		
         <!-- Slide 14: Gonorrhea NAAT -->
         <div class="slide">
@@ -2421,6 +2423,7 @@
 </body>
 
 </html>
+
 
 
 
