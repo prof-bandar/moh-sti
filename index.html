@@ -33,8 +33,7 @@
             width: 100%;
             height: 100%;
             position: relative;
-            padding: 40px;
-            padding-bottom: 100px; /* Space for navigation */
+            padding: 40px 60px 100px 60px;
             overflow: hidden;
             animation: fadeIn 0.5s ease-in-out;
         }
@@ -48,51 +47,70 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Slide header box positioned in top right */
+        /* Floating header box */
         .slide-header-box {
             position: absolute;
             top: 40px;
-            right: 40px;
+            right: 60px;
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
-            padding: 20px 30px;
+            padding: 15px 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             z-index: 10;
-            min-width: 300px;
-            max-width: 400px;
+            min-width: 280px;
+            max-width: 380px;
         }
 
         /* For image slides - no slide number */
         .slide-header-box.image-header {
-            padding: 15px 25px;
+            padding: 12px 20px;
         }
 
         .slide-number {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.9;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 500;
         }
 
         .slide-header-box h1,
         .slide-header-box h2 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             line-height: 1.2;
             margin: 0;
             color: white;
         }
 
-        /* Main content area */
+        /* Smart content layouts */
         .content {
             height: calc(100% - 60px);
-            padding-right: 450px;
             overflow-y: auto;
             overflow-x: hidden;
         }
 
-        /* Special content for title slides */
+        /* Left column content that avoids header */
+        .left-content {
+            float: left;
+            width: calc(100% - 420px);
+            margin-bottom: 20px;
+        }
+
+        /* Right content that fits beside header */
+        .right-space {
+            float: right;
+            width: 400px;
+            padding-top: 80px;
+        }
+
+        /* Full width content below */
+        .full-width-content {
+            clear: both;
+            width: 100%;
+        }
+
+        /* Special content layouts */
         .title-content {
             display: flex;
             flex-direction: column;
@@ -100,92 +118,126 @@
             align-items: center;
             height: 100%;
             text-align: center;
-            padding-right: 0;
         }
 
-        /* Special content for image slides */
         .image-content {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
-            padding-right: 450px;
         }
 
         .image-content img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
+        }
+
+        /* Grid layouts */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .three-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
         }
 
         /* Typography */
         h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 800;
             color: #1e293b;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.1;
         }
 
         h2 {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             color: #334155;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             line-height: 1.2;
         }
 
         h3 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
             color: #dc2626;
-            margin-top: 28px;
-            margin-bottom: 16px;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-top: 16px;
+            margin-bottom: 10px;
         }
 
         p {
-            font-size: 18px;
-            line-height: 1.8;
+            font-size: 16px;
+            line-height: 1.6;
             color: #475569;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         ul, ol {
-            font-size: 18px;
-            line-height: 1.8;
+            font-size: 16px;
+            line-height: 1.6;
             color: #475569;
-            margin-bottom: 20px;
-            padding-left: 24px;
+            margin-bottom: 16px;
+            padding-left: 20px;
         }
 
         li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        /* Compact text for dense slides */
+        .compact {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .compact ul, .compact ol {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .compact li {
+            margin-bottom: 6px;
         }
 
         /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 24px 0;
-            font-size: 16px;
+            margin: 16px 0;
+            font-size: 14px;
             background: white;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         th {
             background-color: #e0e7ff;
             color: #3730a3;
-            padding: 12px 16px;
+            padding: 10px 12px;
             text-align: left;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         td {
-            padding: 12px 16px;
+            padding: 10px 12px;
             border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
         }
 
         tr:last-child td {
@@ -196,12 +248,27 @@
             background-color: #f9fafb;
         }
 
+        /* Small tables */
+        table.small {
+            font-size: 13px;
+        }
+
+        table.small th {
+            padding: 8px 10px;
+            font-size: 12px;
+        }
+
+        table.small td {
+            padding: 8px 10px;
+            font-size: 13px;
+        }
+
         /* Key points box */
         .key-point {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border-left: 4px solid #f59e0b;
-            padding: 20px;
-            margin: 24px 0;
+            padding: 16px;
+            margin: 16px 0;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
@@ -209,8 +276,8 @@
         .key-point strong {
             color: #d97706;
             display: block;
-            margin-bottom: 8px;
-            font-size: 16px;
+            margin-bottom: 6px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -219,9 +286,15 @@
         .warning {
             background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
             border-left: 4px solid #dc2626;
-            padding: 20px;
-            margin: 24px 0;
+            padding: 16px;
+            margin: 16px 0;
             border-radius: 8px;
+        }
+
+        .warning strong {
+            color: #dc2626;
+            display: block;
+            margin-bottom: 6px;
         }
 
         /* Navigation */
@@ -284,15 +357,14 @@
 
         /* Responsive adjustments */
         @media (max-width: 1200px) {
-            .content {
-                padding-right: 380px;
+            .slide {
+                padding: 30px 40px 90px 40px;
             }
-            .slide-header-box {
-                min-width: 250px;
-                max-width: 350px;
+            .left-content {
+                width: calc(100% - 380px);
             }
-            .image-content {
-                padding-right: 380px;
+            .two-columns {
+                gap: 30px;
             }
         }
 
@@ -302,9 +374,13 @@
                 margin-bottom: 20px;
                 max-width: 100%;
             }
-            .content,
-            .image-content {
-                padding-right: 0;
+            .left-content {
+                float: none;
+                width: 100%;
+            }
+            .two-columns,
+            .three-columns {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -323,6 +399,10 @@
                 height: auto;
             }
         }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -333,24 +413,18 @@
         </div>
     </div>
 
-    <style>
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
-
     <div class="presentation-container">
         <!-- Slide 1: Title Slide -->
         <div class="slide active">
             <div class="title-content">
-                <h1 style="color: #1e293b; font-size: 56px; margin-bottom: 32px;">Laboratory Diagnosis of<br>Sexually Transmitted Infections</h1>
-                <p style="font-size: 24px; color: #64748b; margin-bottom: 48px;">Comprehensive Guide for Healthcare Professionals</p>
+                <h1 style="color: #1e293b; font-size: 48px; margin-bottom: 28px;">Laboratory Diagnosis of<br>Sexually Transmitted Infections</h1>
+                <p style="font-size: 22px; color: #64748b; margin-bottom: 40px;">Comprehensive Guide for Healthcare Professionals</p>
                 <div style="display: flex; gap: 40px; align-items: center; justify-content: center;">
                     <img src="https://via.placeholder.com/120x120/3b82f6/ffffff?text=MOH" alt="MOH Logo" style="height: 120px;">
                     <div style="text-align: left;">
-                        <p style="font-size: 20px; color: #475569; margin-bottom: 8px;"><strong>Ministry of Health - Saudi Arabia</strong></p>
-                        <p style="font-size: 18px; color: #64748b;">STI Control Program</p>
-                        <p style="font-size: 16px; color: #94a3b8; margin-top: 8px;">2024 Training Module</p>
+                        <p style="font-size: 18px; color: #475569; margin-bottom: 8px;"><strong>Ministry of Health - Saudi Arabia</strong></p>
+                        <p style="font-size: 16px; color: #64748b;">STI Control Program</p>
+                        <p style="font-size: 14px; color: #94a3b8; margin-top: 8px;">2024 Training Module</p>
                     </div>
                 </div>
             </div>
@@ -363,18 +437,22 @@
                 <h2>Learning Objectives</h2>
             </div>
             <div class="content">
-                <h3>By the end of this session, participants will be able to:</h3>
-                <ol style="font-size: 20px; line-height: 2;">
-                    <li>Understand the principles of STI laboratory diagnosis</li>
-                    <li>Select appropriate tests for different clinical scenarios</li>
-                    <li>Interpret laboratory results accurately</li>
-                    <li>Apply quality assurance principles in STI testing</li>
-                    <li>Recognize limitations of different diagnostic methods</li>
-                    <li>Implement Saudi national guidelines for STI testing</li>
-                </ol>
-                <div class="key-point">
-                    <strong>Duration:</strong>
-                    <p>This comprehensive module is designed for 60 minutes of instruction with interactive discussions</p>
+                <div class="left-content">
+                    <h3>By the end of this session, participants will be able to:</h3>
+                    <ol style="font-size: 18px; line-height: 1.8;">
+                        <li>Understand the principles of STI laboratory diagnosis</li>
+                        <li>Select appropriate tests for different clinical scenarios</li>
+                        <li>Interpret laboratory results accurately</li>
+                        <li>Apply quality assurance principles in STI testing</li>
+                        <li>Recognize limitations of different diagnostic methods</li>
+                        <li>Implement Saudi national guidelines for STI testing</li>
+                    </ol>
+                </div>
+                <div class="full-width-content">
+                    <div class="key-point" style="margin-top: 30px;">
+                        <strong>Duration:</strong>
+                        <p>This comprehensive module is designed for 60 minutes of instruction with interactive discussions</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -386,36 +464,38 @@
                 <h2>Session Agenda</h2>
             </div>
             <div class="content">
-                <table>
-                    <tr>
-                        <th style="width: 30%;">Time</th>
-                        <th>Topic</th>
-                    </tr>
-                    <tr>
-                        <td>5 minutes</td>
-                        <td>Introduction & Importance</td>
-                    </tr>
-                    <tr>
-                        <td>10 minutes</td>
-                        <td>General Principles & Specimen Collection</td>
-                    </tr>
-                    <tr>
-                        <td>25 minutes</td>
-                        <td>Pathogen-Specific Diagnosis</td>
-                    </tr>
-                    <tr>
-                        <td>10 minutes</td>
-                        <td>Point-of-Care & Multiplex Testing</td>
-                    </tr>
-                    <tr>
-                        <td>5 minutes</td>
-                        <td>Saudi Guidelines & Future Directions</td>
-                    </tr>
-                    <tr>
-                        <td>5 minutes</td>
-                        <td>Q&A and Discussion</td>
-                    </tr>
-                </table>
+                <div class="left-content">
+                    <table>
+                        <tr>
+                            <th style="width: 30%;">Time</th>
+                            <th>Topic</th>
+                        </tr>
+                        <tr>
+                            <td>5 minutes</td>
+                            <td>Introduction & Importance</td>
+                        </tr>
+                        <tr>
+                            <td>10 minutes</td>
+                            <td>General Principles & Specimen Collection</td>
+                        </tr>
+                        <tr>
+                            <td>25 minutes</td>
+                            <td>Pathogen-Specific Diagnosis</td>
+                        </tr>
+                        <tr>
+                            <td>10 minutes</td>
+                            <td>Point-of-Care & Multiplex Testing</td>
+                        </tr>
+                        <tr>
+                            <td>5 minutes</td>
+                            <td>Saudi Guidelines & Future Directions</td>
+                        </tr>
+                        <tr>
+                            <td>5 minutes</td>
+                            <td>Q&A and Discussion</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -426,26 +506,32 @@
                 <h2>Why Accurate Laboratory Diagnosis Matters</h2>
             </div>
             <div class="content">
-                <h3>The Critical Role of Laboratory Testing</h3>
-                <ul>
-                    <li>STIs are a major public health concern globally and in Saudi Arabia</li>
-                    <li>Many STIs are <strong>asymptomatic</strong> - laboratory testing is crucial</li>
-                    <li>Accurate diagnosis enables:
-                        <ul>
-                            <li>Appropriate treatment selection</li>
-                            <li>Prevention of complications</li>
-                            <li>Partner notification and treatment</li>
-                            <li>Surveillance and public health planning</li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="key-point">
-                    <strong>Key Statistics:</strong>
-                    <p>Up to 80% of chlamydia and gonorrhea infections in women are asymptomatic</p>
+                <div class="left-content">
+                    <h3>The Critical Role of Laboratory Testing</h3>
+                    <ul>
+                        <li>STIs are a major public health concern globally and in Saudi Arabia</li>
+                        <li>Many STIs are <strong>asymptomatic</strong> - laboratory testing is crucial</li>
+                        <li>Accurate diagnosis enables:
+                            <ul>
+                                <li>Appropriate treatment selection</li>
+                                <li>Prevention of complications</li>
+                                <li>Partner notification and treatment</li>
+                                <li>Surveillance and public health planning</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <div class="warning">
-                    <strong>Remember:</strong>
-                    <p>Clinical diagnosis alone is unreliable for most STIs - laboratory confirmation is essential</p>
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div class="key-point">
+                            <strong>Key Statistics:</strong>
+                            <p>Up to 80% of chlamydia and gonorrhea infections in women are asymptomatic</p>
+                        </div>
+                        <div class="warning">
+                            <strong>Remember:</strong>
+                            <p>Clinical diagnosis alone is unreliable for most STIs - laboratory confirmation is essential</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -518,41 +604,49 @@
                 <h2>Specimen Collection: Critical First Step</h2>
             </div>
             <div class="content">
-                <h3>Types of Specimens</h3>
-                <ul>
-                    <li><strong>Urogenital:</strong> Urine, urethral, cervical, vaginal swabs</li>
-                    <li><strong>Extragenital:</strong> Pharyngeal, rectal swabs</li>
-                    <li><strong>Blood:</strong> Serum, plasma, whole blood</li>
-                    <li><strong>Lesions:</strong> Ulcer swabs, vesicle fluid</li>
-                </ul>
-
-                <h3>Key Collection Principles</h3>
-                <table>
-                    <tr>
-                        <th>Specimen</th>
-                        <th>Key Points</th>
-                    </tr>
-                    <tr>
-                        <td>First-void urine</td>
-                        <td>First 10-20 mL, no urination for ≥1 hour</td>
-                    </tr>
-                    <tr>
-                        <td>Vaginal swab</td>
-                        <td>Self-collected or clinician, preferred for NAAT</td>
-                    </tr>
-                    <tr>
-                        <td>Cervical swab</td>
-                        <td>Remove excess mucus first, rotate 360°</td>
-                    </tr>
-                    <tr>
-                        <td>Ulcer specimen</td>
-                        <td>Clean with saline, sample base of ulcer</td>
-                    </tr>
-                </table>
-
-                <div class="warning">
-                    <strong>Critical:</strong>
-                    <p>Improper specimen collection is the most common cause of false-negative results</p>
+                <div class="left-content">
+                    <h3>Types of Specimens</h3>
+                    <ul>
+                        <li><strong>Urogenital:</strong> Urine, urethral, cervical, vaginal swabs</li>
+                        <li><strong>Extragenital:</strong> Pharyngeal, rectal swabs</li>
+                        <li><strong>Blood:</strong> Serum, plasma, whole blood</li>
+                        <li><strong>Lesions:</strong> Ulcer swabs, vesicle fluid</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div class="warning">
+                            <strong>Critical:</strong>
+                            <p>Improper specimen collection is the most common cause of false-negative results</p>
+                        </div>
+                        
+                        <div>
+                            <h3>Key Collection Principles</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Specimen</th>
+                                    <th>Key Points</th>
+                                </tr>
+                                <tr>
+                                    <td>First-void urine</td>
+                                    <td>First 10-20 mL, no urination for ≥1 hour</td>
+                                </tr>
+                                <tr>
+                                    <td>Vaginal swab</td>
+                                    <td>Self-collected or clinician, preferred for NAAT</td>
+                                </tr>
+                                <tr>
+                                    <td>Cervical swab</td>
+                                    <td>Remove excess mucus first, rotate 360°</td>
+                                </tr>
+                                <tr>
+                                    <td>Ulcer specimen</td>
+                                    <td>Clean with saline, sample base of ulcer</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -608,7 +702,7 @@
                     </tbody>
                 </table>
 
-                <div class="key-point">
+                <div class="key-point" style="margin-top: 20px;">
                     <strong>Best Practice:</strong>
                     <p>Label specimens immediately at bedside with 2 identifiers. Never pre-label collection containers.</p>
                 </div>
@@ -622,35 +716,44 @@
                 <h2>Laboratory Quality Management</h2>
             </div>
             <div class="content">
-                <h3>Three Phases of Quality</h3>
-                
-                <h4 style="color: #3b82f6;">Pre-analytical (70% of errors)</h4>
-                <ul>
-                    <li>Proper patient identification</li>
-                    <li>Correct specimen collection</li>
-                    <li>Appropriate transport conditions</li>
-                    <li>Complete requisition forms</li>
-                </ul>
+                <div class="left-content">
+                    <h3>Three Phases of Quality</h3>
+                    
+                    <h4 style="color: #3b82f6;">Pre-analytical (70% of errors)</h4>
+                    <ul class="compact">
+                        <li>Proper patient identification</li>
+                        <li>Correct specimen collection</li>
+                        <li>Appropriate transport conditions</li>
+                        <li>Complete requisition forms</li>
+                    </ul>
+                </div>
 
-                <h4 style="color: #3b82f6;">Analytical (10% of errors)</h4>
-                <ul>
-                    <li>Daily quality control</li>
-                    <li>Equipment calibration</li>
-                    <li>Standard operating procedures</li>
-                    <li>Staff competency</li>
-                </ul>
-
-                <h4 style="color: #3b82f6;">Post-analytical (20% of errors)</h4>
-                <ul>
-                    <li>Result verification</li>
-                    <li>Timely reporting</li>
-                    <li>Clear interpretation</li>
-                    <li>Critical value notification</li>
-                </ul>
-
-                <div class="key-point">
-                    <strong>Quality Indicators:</strong>
-                    <p>Monitor specimen rejection rate (<2%), turnaround time, and critical value reporting time</p>
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h4 style="color: #3b82f6;">Analytical (10% of errors)</h4>
+                            <ul class="compact">
+                                <li>Daily quality control</li>
+                                <li>Equipment calibration</li>
+                                <li>Standard operating procedures</li>
+                                <li>Staff competency</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #3b82f6;">Post-analytical (20% of errors)</h4>
+                            <ul class="compact">
+                                <li>Result verification</li>
+                                <li>Timely reporting</li>
+                                <li>Clear interpretation</li>
+                                <li>Critical value notification</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="key-point" style="margin-top: 20px;">
+                        <strong>Quality Indicators:</strong>
+                        <p>Monitor specimen rejection rate (<2%), turnaround time, and critical value reporting time</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -662,44 +765,51 @@
                 <h2>Internal Quality Control</h2>
             </div>
             <div class="content">
-                <h3>Essential Elements</h3>
-                <table>
-                    <tr>
-                        <th>Component</th>
-                        <th>Frequency</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>Positive/Negative Controls</td>
-                        <td>Each run</td>
-                        <td>Document results, investigate failures</td>
-                    </tr>
-                    <tr>
-                        <td>Temperature monitoring</td>
-                        <td>Daily</td>
-                        <td>Record, alert if out of range</td>
-                    </tr>
-                    <tr>
-                        <td>Reagent checks</td>
-                        <td>Before use</td>
-                        <td>Check expiry, storage conditions</td>
-                    </tr>
-                    <tr>
-                        <td>Equipment maintenance</td>
-                        <td>Per schedule</td>
-                        <td>Preventive maintenance, calibration</td>
-                    </tr>
-                </table>
-
-                <h3>Westgard Rules</h3>
-                <ul>
-                    <li><strong>1-3s:</strong> Warning - one control exceeds 3 SD</li>
-                    <li><strong>2-2s:</strong> Reject - two consecutive controls exceed 2 SD</li>
-                    <li><strong>R-4s:</strong> Reject - range between controls exceeds 4 SD</li>
-                </ul>
-
-                <div class="warning">
-                    <strong>Never report patient results if QC fails!</strong>
+                <div class="left-content">
+                    <h3>Essential Elements</h3>
+                    <table class="small">
+                        <tr>
+                            <th>Component</th>
+                            <th>Frequency</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>Positive/Negative Controls</td>
+                            <td>Each run</td>
+                            <td>Document results</td>
+                        </tr>
+                        <tr>
+                            <td>Temperature monitoring</td>
+                            <td>Daily</td>
+                            <td>Record, alert if out</td>
+                        </tr>
+                        <tr>
+                            <td>Reagent checks</td>
+                            <td>Before use</td>
+                            <td>Check expiry</td>
+                        </tr>
+                        <tr>
+                            <td>Equipment maintenance</td>
+                            <td>Per schedule</td>
+                            <td>Preventive care</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Westgard Rules</h3>
+                            <ul>
+                                <li><strong>1-3s:</strong> Warning - one control exceeds 3 SD</li>
+                                <li><strong>2-2s:</strong> Reject - two consecutive controls exceed 2 SD</li>
+                                <li><strong>R-4s:</strong> Reject - range between controls exceeds 4 SD</li>
+                            </ul>
+                        </div>
+                        <div class="warning">
+                            <strong>Never report patient results if QC fails!</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -711,41 +821,48 @@
                 <h2>External Quality Assessment</h2>
             </div>
             <div class="content">
-                <h3>Proficiency Testing Programs</h3>
-                <ul>
-                    <li>Mandatory participation for accredited laboratories</li>
-                    <li>Blind samples sent periodically</li>
-                    <li>Compare performance with peer laboratories</li>
-                    <li>Identify systematic errors</li>
-                </ul>
-
-                <h3>Available Programs</h3>
-                <table>
-                    <tr>
-                        <th>Provider</th>
-                        <th>Coverage</th>
-                    </tr>
-                    <tr>
-                        <td>CAP (College of American Pathologists)</td>
-                        <td>Comprehensive STI panel</td>
-                    </tr>
-                    <tr>
-                        <td>UK NEQAS</td>
-                        <td>Microbiology and serology</td>
-                    </tr>
-                    <tr>
-                        <td>WHO EQAS</td>
-                        <td>HIV, syphilis</td>
-                    </tr>
-                    <tr>
-                        <td>Regional programs</td>
-                        <td>Country-specific</td>
-                    </tr>
-                </table>
-
-                <div class="key-point">
-                    <strong>Action on EQA Failures:</strong>
-                    <p>Investigate immediately, implement corrective actions, verify with retesting, document all steps</p>
+                <div class="left-content">
+                    <h3>Proficiency Testing Programs</h3>
+                    <ul>
+                        <li>Mandatory participation for accredited laboratories</li>
+                        <li>Blind samples sent periodically</li>
+                        <li>Compare performance with peer laboratories</li>
+                        <li>Identify systematic errors</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Available Programs</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Provider</th>
+                                    <th>Coverage</th>
+                                </tr>
+                                <tr>
+                                    <td>CAP</td>
+                                    <td>Comprehensive STI panel</td>
+                                </tr>
+                                <tr>
+                                    <td>UK NEQAS</td>
+                                    <td>Microbiology and serology</td>
+                                </tr>
+                                <tr>
+                                    <td>WHO EQAS</td>
+                                    <td>HIV, syphilis</td>
+                                </tr>
+                                <tr>
+                                    <td>Regional</td>
+                                    <td>Country-specific</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Action on EQA Failures:</strong>
+                            <p>Investigate immediately, implement corrective actions, verify with retesting, document all steps</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -757,47 +874,51 @@
                 <h2>Syphilis: Treponema pallidum</h2>
             </div>
             <div class="content">
-                <h3>Key Characteristics</h3>
-                <ul>
-                    <li>Spirochete bacterium - cannot be cultured routinely</li>
-                    <li>Transmission: Sexual contact, vertical, blood</li>
-                    <li>Clinical stages: Primary, secondary, latent, tertiary</li>
-                    <li>Great imitator - diverse clinical manifestations</li>
-                </ul>
-
-                <h3>Clinical Stages and Testing</h3>
-                <table>
-                    <tr>
-                        <th>Stage</th>
-                        <th>Time</th>
-                        <th>Clinical Features</th>
-                        <th>Tests</th>
-                    </tr>
-                    <tr>
-                        <td>Primary</td>
-                        <td>3-90 days</td>
-                        <td>Painless chancre</td>
-                        <td>Direct detection + Serology</td>
-                    </tr>
-                    <tr>
-                        <td>Secondary</td>
-                        <td>4-10 weeks</td>
-                        <td>Rash, systemic</td>
-                        <td>Serology (high titers)</td>
-                    </tr>
-                    <tr>
-                        <td>Latent</td>
-                        <td>Variable</td>
-                        <td>Asymptomatic</td>
-                        <td>Serology only</td>
-                    </tr>
-                    <tr>
-                        <td>Tertiary</td>
-                        <td>Years</td>
-                        <td>Gummas, CVS, neuro</td>
-                        <td>Serology + CSF</td>
-                    </tr>
-                </table>
+                <div class="left-content">
+                    <h3>Key Characteristics</h3>
+                    <ul>
+                        <li>Spirochete bacterium - cannot be cultured routinely</li>
+                        <li>Transmission: Sexual contact, vertical, blood</li>
+                        <li>Clinical stages: Primary, secondary, latent, tertiary</li>
+                        <li>Great imitator - diverse clinical manifestations</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <h3>Clinical Stages and Testing</h3>
+                    <table>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Time</th>
+                            <th>Clinical Features</th>
+                            <th>Tests</th>
+                        </tr>
+                        <tr>
+                            <td>Primary</td>
+                            <td>3-90 days</td>
+                            <td>Painless chancre</td>
+                            <td>Direct detection + Serology</td>
+                        </tr>
+                        <tr>
+                            <td>Secondary</td>
+                            <td>4-10 weeks</td>
+                            <td>Rash, systemic</td>
+                            <td>Serology (high titers)</td>
+                        </tr>
+                        <tr>
+                            <td>Latent</td>
+                            <td>Variable</td>
+                            <td>Asymptomatic</td>
+                            <td>Serology only</td>
+                        </tr>
+                        <tr>
+                            <td>Tertiary</td>
+                            <td>Years</td>
+                            <td>Gummas, CVS, neuro</td>
+                            <td>Serology + CSF</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -846,18 +967,21 @@
                     </tbody>
                 </table>
 
-                <h3>Specimen Collection for Direct Detection</h3>
-                <ol>
-                    <li>Clean lesion with saline (not antiseptic)</li>
-                    <li>Abrade surface gently to induce serous exudate</li>
-                    <li>Collect clear fluid (not blood or pus)</li>
-                    <li>For darkfield: Examine immediately</li>
-                    <li>For DFA/PCR: Use appropriate transport</li>
-                </ol>
-
-                <div class="warning">
-                    <strong>Limitation:</strong>
-                    <p>Direct detection only useful for active lesions in primary and secondary syphilis</p>
+                <div class="two-columns" style="margin-top: 20px;">
+                    <div>
+                        <h3>Specimen Collection for Direct Detection</h3>
+                        <ol class="compact">
+                            <li>Clean lesion with saline (not antiseptic)</li>
+                            <li>Abrade surface gently to induce serous exudate</li>
+                            <li>Collect clear fluid (not blood or pus)</li>
+                            <li>For darkfield: Examine immediately</li>
+                            <li>For DFA/PCR: Use appropriate transport</li>
+                        </ol>
+                    </div>
+                    <div class="warning">
+                        <strong>Limitation:</strong>
+                        <p>Direct detection only useful for active lesions in primary and secondary syphilis</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -869,12 +993,12 @@
                 <h2>Syphilis: Serological Tests</h2>
             </div>
             <div class="content">
-                <h3>Two Categories of Tests</h3>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div style="background: #eff6ff; padding: 20px; border-radius: 8px;">
+                <div class="left-content">
+                    <h3>Two Categories of Tests</h3>
+                    
+                    <div style="background: #eff6ff; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
                         <h4 style="color: #1e40af;">Non-treponemal Tests</h4>
-                        <ul>
+                        <ul class="compact">
                             <li>RPR (Rapid Plasma Reagin)</li>
                             <li>VDRL (Venereal Disease Research Lab)</li>
                             <li>Detect antibodies to cardiolipin</li>
@@ -882,41 +1006,45 @@
                             <li>Monitor treatment response</li>
                         </ul>
                     </div>
-                    
-                    <div style="background: #f0fdf4; padding: 20px; border-radius: 8px;">
-                        <h4 style="color: #166534;">Treponemal Tests</h4>
-                        <ul>
-                            <li>TPPA/TPHA</li>
-                            <li>FTA-ABS</li>
-                            <li>EIA/CIA</li>
-                            <li>Immunoblots</li>
-                            <li>Remain positive for life</li>
-                        </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div style="background: #f0fdf4; padding: 16px; border-radius: 8px;">
+                            <h4 style="color: #166534;">Treponemal Tests</h4>
+                            <ul class="compact">
+                                <li>TPPA/TPHA</li>
+                                <li>FTA-ABS</li>
+                                <li>EIA/CIA</li>
+                                <li>Immunoblots</li>
+                                <li>Remain positive for life</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3>False Positive Causes</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Non-treponemal</th>
+                                    <th>Treponemal</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        • Pregnancy<br>
+                                        • Autoimmune<br>
+                                        • Acute infections<br>
+                                        • Elderly
+                                    </td>
+                                    <td>
+                                        • Other treponemes<br>
+                                        • Lyme disease<br>
+                                        • Technical error
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
-
-                <h3>False Positive Causes</h3>
-                <table>
-                    <tr>
-                        <th>Non-treponemal</th>
-                        <th>Treponemal</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            • Pregnancy<br>
-                            • Autoimmune diseases<br>
-                            • Acute infections<br>
-                            • Elderly<br>
-                            • IV drug use
-                        </td>
-                        <td>
-                            • Other treponemal diseases<br>
-                            • Lyme disease (rare)<br>
-                            • Autoimmune (rare)<br>
-                            • Technical error
-                        </td>
-                    </tr>
-                </table>
             </div>
         </div>
 
@@ -938,43 +1066,47 @@
                 <h2>Syphilis Testing Algorithms</h2>
             </div>
             <div class="content">
-                <h3>Traditional Algorithm</h3>
-                <ol>
-                    <li>Screen with non-treponemal test (RPR/VDRL)</li>
-                    <li>If positive → Confirm with treponemal test (TPPA)</li>
-                    <li>Report with titer (e.g., RPR 1:32, TPPA positive)</li>
-                </ol>
+                <div class="left-content">
+                    <h3>Traditional Algorithm</h3>
+                    <ol>
+                        <li>Screen with non-treponemal test (RPR/VDRL)</li>
+                        <li>If positive → Confirm with treponemal test (TPPA)</li>
+                        <li>Report with titer (e.g., RPR 1:32, TPPA positive)</li>
+                    </ol>
 
-                <h3>Reverse Algorithm</h3>
-                <ol>
-                    <li>Screen with treponemal test (EIA/CIA)</li>
-                    <li>If positive → Perform non-treponemal test (RPR)</li>
-                    <li>If discordant → Second treponemal test (TPPA)</li>
-                </ol>
-
-                <h3>Result Interpretation</h3>
-                <table>
-                    <tr>
-                        <th>Treponemal</th>
-                        <th>Non-treponemal</th>
-                        <th>Interpretation</th>
-                    </tr>
-                    <tr>
-                        <td>Positive</td>
-                        <td>Positive</td>
-                        <td>Active syphilis (confirm stage)</td>
-                    </tr>
-                    <tr>
-                        <td>Positive</td>
-                        <td>Negative</td>
-                        <td>Past treated syphilis OR early/late syphilis</td>
-                    </tr>
-                    <tr>
-                        <td>Negative</td>
-                        <td>Positive</td>
-                        <td>False positive (confirm with another treponemal)</td>
-                    </tr>
-                </table>
+                    <h3 style="margin-top: 30px;">Reverse Algorithm</h3>
+                    <ol>
+                        <li>Screen with treponemal test (EIA/CIA)</li>
+                        <li>If positive → Perform non-treponemal test (RPR)</li>
+                        <li>If discordant → Second treponemal test (TPPA)</li>
+                    </ol>
+                </div>
+                
+                <div class="full-width-content">
+                    <h3>Result Interpretation</h3>
+                    <table>
+                        <tr>
+                            <th>Treponemal</th>
+                            <th>Non-treponemal</th>
+                            <th>Interpretation</th>
+                        </tr>
+                        <tr>
+                            <td>Positive</td>
+                            <td>Positive</td>
+                            <td>Active syphilis (confirm stage)</td>
+                        </tr>
+                        <tr>
+                            <td>Positive</td>
+                            <td>Negative</td>
+                            <td>Past treated syphilis OR early/late syphilis</td>
+                        </tr>
+                        <tr>
+                            <td>Negative</td>
+                            <td>Positive</td>
+                            <td>False positive (confirm with another treponemal)</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -985,45 +1117,52 @@
                 <h2>Monitoring Syphilis Treatment</h2>
             </div>
             <div class="content">
-                <h3>Key Principles</h3>
-                <ul>
-                    <li>Use <strong>quantitative non-treponemal tests</strong> (RPR/VDRL)</li>
-                    <li>4-fold decline in titer = successful treatment</li>
-                    <li>Treponemal tests remain positive - do NOT use for monitoring</li>
-                </ul>
-
-                <h3>Follow-up Schedule</h3>
-                <table>
-                    <tr>
-                        <th>Stage</th>
-                        <th>Follow-up Times</th>
-                        <th>Expected Response</th>
-                    </tr>
-                    <tr>
-                        <td>Primary/Secondary</td>
-                        <td>6 and 12 months</td>
-                        <td>4-fold decline by 6-12 months</td>
-                    </tr>
-                    <tr>
-                        <td>Early Latent</td>
-                        <td>6, 12, and 24 months</td>
-                        <td>4-fold decline by 12-24 months</td>
-                    </tr>
-                    <tr>
-                        <td>Late Latent</td>
-                        <td>6, 12, and 24 months</td>
-                        <td>May decline slowly</td>
-                    </tr>
-                    <tr>
-                        <td>Neurosyphilis</td>
-                        <td>Every 6 months</td>
-                        <td>CSF + serology</td>
-                    </tr>
-                </table>
-
-                <div class="warning">
-                    <strong>Treatment Failure:</strong>
-                    <p>No 4-fold decline or clinical signs persist → Re-evaluate, consider neurosyphilis, retreat</p>
+                <div class="left-content">
+                    <h3>Key Principles</h3>
+                    <ul>
+                        <li>Use <strong>quantitative non-treponemal tests</strong> (RPR/VDRL)</li>
+                        <li>4-fold decline in titer = successful treatment</li>
+                        <li>Treponemal tests remain positive - do NOT use for monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Follow-up Schedule</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Stage</th>
+                                    <th>Follow-up</th>
+                                    <th>Expected</th>
+                                </tr>
+                                <tr>
+                                    <td>Primary/Secondary</td>
+                                    <td>6, 12 months</td>
+                                    <td>4-fold by 6-12 mo</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Latent</td>
+                                    <td>6, 12, 24 months</td>
+                                    <td>4-fold by 12-24 mo</td>
+                                </tr>
+                                <tr>
+                                    <td>Late Latent</td>
+                                    <td>6, 12, 24 months</td>
+                                    <td>May decline slowly</td>
+                                </tr>
+                                <tr>
+                                    <td>Neurosyphilis</td>
+                                    <td>Every 6 months</td>
+                                    <td>CSF + serology</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="warning">
+                            <strong>Treatment Failure:</strong>
+                            <p>No 4-fold decline or clinical signs persist → Re-evaluate, consider neurosyphilis, retreat</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1035,46 +1174,53 @@
                 <h2>Gonorrhea: Neisseria gonorrhoeae</h2>
             </div>
             <div class="content">
-                <h3>Key Characteristics</h3>
-                <ul>
-                    <li>Gram-negative intracellular diplococcus</li>
-                    <li>Affects urogenital, pharyngeal, and rectal sites</li>
-                    <li>Often asymptomatic, especially in women (>50%)</li>
-                    <li>Can cause PID, infertility, disseminated infection</li>
-                </ul>
-
-                <h3>Clinical Presentations</h3>
-                <table>
-                    <tr>
-                        <th>Site</th>
-                        <th>Symptoms</th>
-                        <th>Complications</th>
-                    </tr>
-                    <tr>
-                        <td>Male urethra</td>
-                        <td>Purulent discharge, dysuria</td>
-                        <td>Epididymitis, infertility</td>
-                    </tr>
-                    <tr>
-                        <td>Female cervix</td>
-                        <td>Often asymptomatic, discharge</td>
-                        <td>PID, infertility, ectopic</td>
-                    </tr>
-                    <tr>
-                        <td>Pharynx</td>
-                        <td>Usually asymptomatic</td>
-                        <td>Transmission reservoir</td>
-                    </tr>
-                    <tr>
-                        <td>Rectum</td>
-                        <td>Discharge, pain, bleeding</td>
-                        <td>Proctitis</td>
-                    </tr>
-                </table>
-
-                <div class="key-point">
-                    <strong>Antimicrobial Resistance Crisis:</strong>
-                    <p>Rising resistance to all first-line antibiotics - culture for susceptibility testing is critical</p>
+                <div class="left-content">
+                    <h3>Key Characteristics</h3>
+                    <ul>
+                        <li>Gram-negative intracellular diplococcus</li>
+                        <li>Affects urogenital, pharyngeal, and rectal sites</li>
+                        <li>Often asymptomatic, especially in women (>50%)</li>
+                        <li>Can cause PID, infertility, disseminated infection</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Clinical Presentations</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Site</th>
+                                    <th>Symptoms</th>
+                                    <th>Complications</th>
+                                </tr>
+                                <tr>
+                                    <td>Male urethra</td>
+                                    <td>Purulent discharge</td>
+                                    <td>Epididymitis</td>
+                                </tr>
+                                <tr>
+                                    <td>Female cervix</td>
+                                    <td>Often asymptomatic</td>
+                                    <td>PID, infertility</td>
+                                </tr>
+                                <tr>
+                                    <td>Pharynx</td>
+                                    <td>Usually asymptomatic</td>
+                                    <td>Transmission</td>
+                                </tr>
+                                <tr>
+                                    <td>Rectum</td>
+                                    <td>Discharge, pain</td>
+                                    <td>Proctitis</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Antimicrobial Resistance Crisis:</strong>
+                            <p>Rising resistance to all first-line antibiotics - culture for susceptibility testing is critical</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1086,55 +1232,62 @@
                 <h2>Gonorrhea: Microscopy</h2>
             </div>
             <div class="content">
-                <h3>Gram Stain Method</h3>
-                <ol>
-                    <li>Prepare smear from discharge/swab</li>
-                    <li>Heat fix gently</li>
-                    <li>Gram stain procedure</li>
-                    <li>Look for intracellular Gram-negative diplococci in PMNs</li>
-                </ol>
-
-                <h3>Performance by Site</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Specimen Site</th>
-                            <th>Sensitivity</th>
-                            <th>Specificity</th>
-                            <th>Use</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Male urethral discharge</td>
-                            <td>95%</td>
-                            <td>99%</td>
-                            <td><strong>Recommended</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Cervical</td>
-                            <td>50%</td>
-                            <td>95%</td>
-                            <td>Limited value</td>
-                        </tr>
-                        <tr>
-                            <td>Pharyngeal</td>
-                            <td>&lt;20%</td>
-                            <td>Poor</td>
-                            <td><strong>Not recommended</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Rectal</td>
-                            <td>40%</td>
-                            <td>Poor</td>
-                            <td><strong>Not recommended</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="warning">
-                    <strong>Important:</strong>
-                    <p>Gram stain is only reliable for symptomatic male urethral discharge</p>
+                <div class="left-content">
+                    <h3>Gram Stain Method</h3>
+                    <ol>
+                        <li>Prepare smear from discharge/swab</li>
+                        <li>Heat fix gently</li>
+                        <li>Gram stain procedure</li>
+                        <li>Look for intracellular Gram-negative diplococci in PMNs</li>
+                    </ol>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Performance by Site</h3>
+                            <table class="small">
+                                <thead>
+                                    <tr>
+                                        <th>Site</th>
+                                        <th>Sensitivity</th>
+                                        <th>Specificity</th>
+                                        <th>Use</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Male urethral</td>
+                                        <td>95%</td>
+                                        <td>99%</td>
+                                        <td><strong>Recommended</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cervical</td>
+                                        <td>50%</td>
+                                        <td>95%</td>
+                                        <td>Limited value</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pharyngeal</td>
+                                        <td>&lt;20%</td>
+                                        <td>Poor</td>
+                                        <td><strong>Not recommended</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rectal</td>
+                                        <td>40%</td>
+                                        <td>Poor</td>
+                                        <td><strong>Not recommended</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="warning">
+                            <strong>Important:</strong>
+                            <p>Gram stain is only reliable for symptomatic male urethral discharge</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1146,35 +1299,42 @@
                 <h2>Gonorrhea: Culture Methods</h2>
             </div>
             <div class="content">
-                <h3>Culture Requirements</h3>
-                <ul>
-                    <li><strong>Media:</strong> Chocolate agar, Thayer-Martin (selective), MTM</li>
-                    <li><strong>Atmosphere:</strong> 5-10% CO₂, humid</li>
-                    <li><strong>Temperature:</strong> 35-37°C</li>
-                    <li><strong>Transport:</strong> Immediate plating or transport in CO₂</li>
-                </ul>
+                <div class="left-content">
+                    <h3>Culture Requirements</h3>
+                    <ul>
+                        <li><strong>Media:</strong> Chocolate agar, Thayer-Martin, MTM</li>
+                        <li><strong>Atmosphere:</strong> 5-10% CO₂, humid</li>
+                        <li><strong>Temperature:</strong> 35-37°C</li>
+                        <li><strong>Transport:</strong> Immediate plating or CO₂ transport</li>
+                    </ul>
 
-                <h3>Identification Steps</h3>
-                <ol>
-                    <li>Gray, mucoid colonies on chocolate agar</li>
-                    <li>Oxidase positive</li>
-                    <li>Catalase positive</li>
-                    <li>Gram-negative diplococci</li>
-                    <li>Sugar utilization: Glucose only (not maltose, sucrose)</li>
-                </ol>
-
-                <div class="key-point">
-                    <strong>Critical Advantage:</strong>
-                    <p>Culture allows antimicrobial susceptibility testing - essential for resistance surveillance</p>
+                    <h3 style="margin-top: 20px;">Identification Steps</h3>
+                    <ol class="compact">
+                        <li>Gray, mucoid colonies on chocolate agar</li>
+                        <li>Oxidase positive</li>
+                        <li>Catalase positive</li>
+                        <li>Gram-negative diplococci</li>
+                        <li>Sugar utilization: Glucose only</li>
+                    </ol>
                 </div>
-
-                <h3>Limitations</h3>
-                <ul>
-                    <li>Organism is fragile - dies quickly</li>
-                    <li>Lower sensitivity than NAAT (70-85%)</li>
-                    <li>Requires expertise and resources</li>
-                    <li>Takes 24-72 hours</li>
-                </ul>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div class="key-point">
+                            <strong>Critical Advantage:</strong>
+                            <p>Culture allows antimicrobial susceptibility testing - essential for resistance surveillance</p>
+                        </div>
+                        <div>
+                            <h3>Limitations</h3>
+                            <ul class="compact">
+                                <li>Organism is fragile - dies quickly</li>
+                                <li>Lower sensitivity than NAAT (70-85%)</li>
+                                <li>Requires expertise and resources</li>
+                                <li>Takes 24-72 hours</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1185,42 +1345,49 @@
                 <h2>Gonorrhea: Nucleic Acid Testing</h2>
             </div>
             <div class="content">
-                <h3>NAAT Advantages</h3>
-                <ul>
-                    <li>Superior sensitivity (&gt;95%) compared to culture</li>
-                    <li>Can test multiple anatomical sites</li>
-                    <li>Stable specimens - no viability required</li>
-                    <li>Automated platforms available</li>
-                    <li>Co-testing with <em>Chlamydia trachomatis</em></li>
-                </ul>
-
-                <h3>Specimen Types for NAAT</h3>
-                <table>
-                    <tr>
-                        <th>Patient</th>
-                        <th>Preferred Specimen</th>
-                        <th>Collection Notes</th>
-                    </tr>
-                    <tr>
-                        <td>Males</td>
-                        <td>First-void urine</td>
-                        <td>First 10-20 mL, no urination ≥1 hour</td>
-                    </tr>
-                    <tr>
-                        <td>Females</td>
-                        <td>Vaginal swab</td>
-                        <td>Self or clinician collected</td>
-                    </tr>
-                    <tr>
-                        <td>Extragenital</td>
-                        <td>Site-specific swab</td>
-                        <td>Based on sexual practices</td>
-                    </tr>
-                </table>
-
-                <div class="warning">
-                    <strong>Limitation:</strong>
-                    <p>NAAT cannot provide antimicrobial susceptibility - culture still needed for resistance testing</p>
+                <div class="left-content">
+                    <h3>NAAT Advantages</h3>
+                    <ul>
+                        <li>Superior sensitivity (>95%) compared to culture</li>
+                        <li>Can test multiple anatomical sites</li>
+                        <li>Stable specimens - no viability required</li>
+                        <li>Automated platforms available</li>
+                        <li>Co-testing with <em>Chlamydia trachomatis</em></li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Specimen Types for NAAT</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Patient</th>
+                                    <th>Preferred</th>
+                                    <th>Notes</th>
+                                </tr>
+                                <tr>
+                                    <td>Males</td>
+                                    <td>First-void urine</td>
+                                    <td>First 10-20 mL</td>
+                                </tr>
+                                <tr>
+                                    <td>Females</td>
+                                    <td>Vaginal swab</td>
+                                    <td>Self or clinician</td>
+                                </tr>
+                                <tr>
+                                    <td>Extragenital</td>
+                                    <td>Site swab</td>
+                                    <td>Based on practices</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="warning">
+                            <strong>Limitation:</strong>
+                            <p>NAAT cannot provide antimicrobial susceptibility - culture still needed for resistance testing</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1232,42 +1399,49 @@
                 <h2>Gonorrhea: Antimicrobial Resistance</h2>
             </div>
             <div class="content">
-                <h3>Global Resistance Crisis</h3>
-                <ul>
-                    <li>Resistance to all first-line antibiotics has emerged</li>
-                    <li>Penicillin, tetracycline, fluoroquinolones - widespread resistance</li>
-                    <li>Azithromycin resistance increasing</li>
-                    <li>Ceftriaxone is last remaining empiric option</li>
-                    <li>XDR (extensively drug-resistant) strains reported</li>
-                </ul>
-
-                <h3>Susceptibility Testing Methods</h3>
-                <table>
-                    <tr>
-                        <th>Method</th>
-                        <th>Use</th>
-                        <th>Comments</th>
-                    </tr>
-                    <tr>
-                        <td>Disk Diffusion</td>
-                        <td>Routine testing</td>
-                        <td>Standardized, CLSI guidelines</td>
-                    </tr>
-                    <tr>
-                        <td>E-test</td>
-                        <td>MIC determination</td>
-                        <td>More precise, expensive</td>
-                    </tr>
-                    <tr>
-                        <td>Agar Dilution</td>
-                        <td>Reference method</td>
-                        <td>Gold standard, labor intensive</td>
-                    </tr>
-                </table>
-
-                <div class="key-point">
-                    <strong>Saudi Recommendation:</strong>
-                    <p>Culture from treatment failures and perform susceptibility testing. Report to surveillance program.</p>
+                <div class="left-content">
+                    <h3>Global Resistance Crisis</h3>
+                    <ul>
+                        <li>Resistance to all first-line antibiotics has emerged</li>
+                        <li>Penicillin, tetracycline, fluoroquinolones - widespread</li>
+                        <li>Azithromycin resistance increasing</li>
+                        <li>Ceftriaxone is last remaining empiric option</li>
+                        <li>XDR (extensively drug-resistant) strains reported</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Susceptibility Testing Methods</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Use</th>
+                                    <th>Comments</th>
+                                </tr>
+                                <tr>
+                                    <td>Disk Diffusion</td>
+                                    <td>Routine</td>
+                                    <td>CLSI guidelines</td>
+                                </tr>
+                                <tr>
+                                    <td>E-test</td>
+                                    <td>MIC</td>
+                                    <td>More precise</td>
+                                </tr>
+                                <tr>
+                                    <td>Agar Dilution</td>
+                                    <td>Reference</td>
+                                    <td>Gold standard</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Saudi Recommendation:</strong>
+                            <p>Culture from treatment failures and perform susceptibility testing. Report to surveillance.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1279,43 +1453,47 @@
                 <h2>Chlamydia trachomatis</h2>
             </div>
             <div class="content">
-                <h3>Key Characteristics</h3>
-                <ul>
-                    <li>Obligate intracellular bacterium</li>
-                    <li>Most common bacterial STI worldwide</li>
-                    <li>70-80% asymptomatic in women, 50% in men</li>
-                    <li>Major cause of PID, infertility, ectopic pregnancy</li>
-                    <li>Includes LGV serovars (L1, L2, L3)</li>
-                </ul>
-
-                <h3>Clinical Syndromes</h3>
-                <table>
-                    <tr>
-                        <th>Syndrome</th>
-                        <th>Serovars</th>
-                        <th>Features</th>
-                    </tr>
-                    <tr>
-                        <td>Urogenital infection</td>
-                        <td>D-K</td>
-                        <td>Urethritis, cervicitis, PID</td>
-                    </tr>
-                    <tr>
-                        <td>Lymphogranuloma venereum</td>
-                        <td>L1, L2, L3</td>
-                        <td>Genital ulcer, lymphadenopathy</td>
-                    </tr>
-                    <tr>
-                        <td>Trachoma</td>
-                        <td>A, B, C</td>
-                        <td>Eye infection (not STI)</td>
-                    </tr>
-                    <tr>
-                        <td>Neonatal</td>
-                        <td>D-K</td>
-                        <td>Conjunctivitis, pneumonia</td>
-                    </tr>
-                </table>
+                <div class="left-content">
+                    <h3>Key Characteristics</h3>
+                    <ul>
+                        <li>Obligate intracellular bacterium</li>
+                        <li>Most common bacterial STI worldwide</li>
+                        <li>70-80% asymptomatic in women, 50% in men</li>
+                        <li>Major cause of PID, infertility, ectopic pregnancy</li>
+                        <li>Includes LGV serovars (L1, L2, L3)</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <h3>Clinical Syndromes</h3>
+                    <table>
+                        <tr>
+                            <th>Syndrome</th>
+                            <th>Serovars</th>
+                            <th>Features</th>
+                        </tr>
+                        <tr>
+                            <td>Urogenital infection</td>
+                            <td>D-K</td>
+                            <td>Urethritis, cervicitis, PID</td>
+                        </tr>
+                        <tr>
+                            <td>Lymphogranuloma venereum</td>
+                            <td>L1, L2, L3</td>
+                            <td>Genital ulcer, lymphadenopathy</td>
+                        </tr>
+                        <tr>
+                            <td>Trachoma</td>
+                            <td>A, B, C</td>
+                            <td>Eye infection (not STI)</td>
+                        </tr>
+                        <tr>
+                            <td>Neonatal</td>
+                            <td>D-K</td>
+                            <td>Conjunctivitis, pneumonia</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -1326,40 +1504,47 @@
                 <h2>Chlamydia: Diagnostic Methods</h2>
             </div>
             <div class="content">
-                <h3>Evolution of Testing</h3>
-                <ul>
-                    <li><strong>Historical:</strong> Cell culture (McCoy cells) - Complex, expensive</li>
-                    <li><strong>Transitional:</strong> DFA, EIA - Lower sensitivity</li>
-                    <li><strong>Current Standard:</strong> NAAT - Highly sensitive and specific</li>
-                </ul>
-
-                <h3>NAAT Performance</h3>
-                <table>
-                    <tr>
-                        <th>Parameter</th>
-                        <th>Value</th>
-                    </tr>
-                    <tr>
-                        <td>Sensitivity</td>
-                        <td>&gt;90-95%</td>
-                    </tr>
-                    <tr>
-                        <td>Specificity</td>
-                        <td>&gt;99%</td>
-                    </tr>
-                    <tr>
-                        <td>Detection limit</td>
-                        <td>1-10 organisms</td>
-                    </tr>
-                    <tr>
-                        <td>FDA-approved sites</td>
-                        <td>Multiple</td>
-                    </tr>
-                </table>
-
-                <div class="key-point">
-                    <strong>Key Point:</strong>
-                    <p>NAAT is the only recommended method for routine chlamydia diagnosis</p>
+                <div class="left-content">
+                    <h3>Evolution of Testing</h3>
+                    <ul>
+                        <li><strong>Historical:</strong> Cell culture (McCoy cells) - Complex</li>
+                        <li><strong>Transitional:</strong> DFA, EIA - Lower sensitivity</li>
+                        <li><strong>Current Standard:</strong> NAAT - Highly sensitive</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>NAAT Performance</h3>
+                            <table>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                </tr>
+                                <tr>
+                                    <td>Sensitivity</td>
+                                    <td>>90-95%</td>
+                                </tr>
+                                <tr>
+                                    <td>Specificity</td>
+                                    <td>>99%</td>
+                                </tr>
+                                <tr>
+                                    <td>Detection limit</td>
+                                    <td>1-10 organisms</td>
+                                </tr>
+                                <tr>
+                                    <td>FDA-approved sites</td>
+                                    <td>Multiple</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Key Point:</strong>
+                            <p>NAAT is the only recommended method for routine chlamydia diagnosis</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1371,50 +1556,57 @@
                 <h2>Chlamydia: Specimen Selection</h2>
             </div>
             <div class="content">
-                <h3>Optimal Specimens by Clinical Scenario</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Clinical Scenario</th>
-                            <th>Preferred Specimen</th>
-                            <th>Alternative</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Asymptomatic female screening</td>
-                            <td>Vaginal swab (self-collected)</td>
-                            <td>First-void urine</td>
-                        </tr>
-                        <tr>
-                            <td>Symptomatic female</td>
-                            <td>Cervical swab</td>
-                            <td>Vaginal swab</td>
-                        </tr>
-                        <tr>
-                            <td>Male (any)</td>
-                            <td>First-void urine</td>
-                            <td>Urethral swab</td>
-                        </tr>
-                        <tr>
-                            <td>Extragenital</td>
-                            <td>Site-specific swab</td>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Self-Collection Advantages</h3>
-                <ul>
-                    <li>Equal or better sensitivity than clinician-collected</li>
-                    <li>Improved patient acceptability</li>
-                    <li>Reduces clinical time</li>
-                    <li>Enables outreach testing</li>
-                </ul>
-
-                <div class="key-point">
-                    <strong>Best Practice:</strong>
-                    <p>Offer self-collected vaginal swabs as first-line specimen for female screening</p>
+                <div class="left-content">
+                    <h3>Optimal Specimens by Scenario</h3>
+                    <table class="small">
+                        <thead>
+                            <tr>
+                                <th>Scenario</th>
+                                <th>Preferred</th>
+                                <th>Alternative</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Asymptomatic female</td>
+                                <td>Vaginal swab (self)</td>
+                                <td>First-void urine</td>
+                            </tr>
+                            <tr>
+                                <td>Symptomatic female</td>
+                                <td>Cervical swab</td>
+                                <td>Vaginal swab</td>
+                            </tr>
+                            <tr>
+                                <td>Male (any)</td>
+                                <td>First-void urine</td>
+                                <td>Urethral swab</td>
+                            </tr>
+                            <tr>
+                                <td>Extragenital</td>
+                                <td>Site-specific swab</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Self-Collection Advantages</h3>
+                            <ul>
+                                <li>Equal or better sensitivity than clinician-collected</li>
+                                <li>Improved patient acceptability</li>
+                                <li>Reduces clinical time</li>
+                                <li>Enables outreach testing</li>
+                            </ul>
+                        </div>
+                        <div class="key-point">
+                            <strong>Best Practice:</strong>
+                            <p>Offer self-collected vaginal swabs as first-line specimen for female screening</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1426,42 +1618,49 @@
                 <h2>Chlamydia: Special Considerations</h2>
             </div>
             <div class="content">
-                <h3>LGV (Lymphogranuloma Venereum)</h3>
-                <ul>
-                    <li>Caused by C. trachomatis serovars L1, L2, L3</li>
-                    <li>Requires genotyping - not available in routine labs</li>
-                    <li>Clinical diagnosis + positive chlamydia NAAT</li>
-                    <li>Consider in: proctitis, inguinal buboes, genital ulcers</li>
-                    <li>Treatment differs from non-LGV chlamydia</li>
-                </ul>
-
-                <h3>Test of Cure</h3>
-                <table>
-                    <tr>
-                        <th>Recommendation</th>
-                        <th>Rationale</th>
-                    </tr>
-                    <tr>
-                        <td>NOT recommended routinely</td>
-                        <td>Dead organism detection up to 5 weeks</td>
-                    </tr>
-                    <tr>
-                        <td>Wait ≥4 weeks if needed</td>
-                        <td>Minimize false positives</td>
-                    </tr>
-                    <tr>
-                        <td>Indicated for:</td>
-                        <td>
-                            • Pregnant women<br>
-                            • Compliance concerns<br>
-                            • Persistent symptoms
-                        </td>
-                    </tr>
-                </table>
-
-                <div class="warning">
-                    <strong>Important:</strong>
-                    <p>Retest all patients at 3 months to detect reinfection (not test of cure)</p>
+                <div class="left-content">
+                    <h3>LGV (Lymphogranuloma Venereum)</h3>
+                    <ul>
+                        <li>Caused by C. trachomatis serovars L1, L2, L3</li>
+                        <li>Requires genotyping - not available in routine labs</li>
+                        <li>Clinical diagnosis + positive chlamydia NAAT</li>
+                        <li>Consider in: proctitis, inguinal buboes, genital ulcers</li>
+                        <li>Treatment differs from non-LGV chlamydia</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Test of Cure</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Recommendation</th>
+                                    <th>Rationale</th>
+                                </tr>
+                                <tr>
+                                    <td>NOT routine</td>
+                                    <td>Dead organism detection</td>
+                                </tr>
+                                <tr>
+                                    <td>Wait ≥4 weeks</td>
+                                    <td>Minimize false positives</td>
+                                </tr>
+                                <tr>
+                                    <td>Indicated for:</td>
+                                    <td>
+                                        • Pregnant women<br>
+                                        • Compliance concerns<br>
+                                        • Persistent symptoms
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="warning">
+                            <strong>Important:</strong>
+                            <p>Retest all patients at 3 months to detect reinfection (not test of cure)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1473,43 +1672,50 @@
                 <h2>Trichomonas vaginalis</h2>
             </div>
             <div class="content">
-                <h3>Key Facts</h3>
-                <ul>
-                    <li>Flagellated protozoan parasite</li>
-                    <li>Most common non-viral STI globally</li>
-                    <li>70-85% asymptomatic</li>
-                    <li>Associated with:
-                        <ul>
-                            <li>Adverse pregnancy outcomes</li>
-                            <li>Increased HIV transmission (2-3x)</li>
-                            <li>PID risk</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h3>Clinical Manifestations</h3>
-                <table>
-                    <tr>
-                        <th>Population</th>
-                        <th>Symptoms</th>
-                    </tr>
-                    <tr>
-                        <td>Women</td>
-                        <td>Frothy, yellow-green discharge; vulvar irritation; dysuria</td>
-                    </tr>
-                    <tr>
-                        <td>Men</td>
-                        <td>Usually asymptomatic; urethral discharge; dysuria</td>
-                    </tr>
-                    <tr>
-                        <td>Complications</td>
-                        <td>Preterm birth, low birth weight, PID</td>
-                    </tr>
-                </table>
-
-                <div class="key-point">
-                    <strong>Public Health Impact:</strong>
-                    <p>Often overlooked but has significant morbidity and facilitates HIV transmission</p>
+                <div class="left-content">
+                    <h3>Key Facts</h3>
+                    <ul>
+                        <li>Flagellated protozoan parasite</li>
+                        <li>Most common non-viral STI globally</li>
+                        <li>70-85% asymptomatic</li>
+                        <li>Associated with:
+                            <ul>
+                                <li>Adverse pregnancy outcomes</li>
+                                <li>Increased HIV transmission (2-3x)</li>
+                                <li>PID risk</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Clinical Manifestations</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Population</th>
+                                    <th>Symptoms</th>
+                                </tr>
+                                <tr>
+                                    <td>Women</td>
+                                    <td>Frothy discharge, vulvar irritation</td>
+                                </tr>
+                                <tr>
+                                    <td>Men</td>
+                                    <td>Usually asymptomatic</td>
+                                </tr>
+                                <tr>
+                                    <td>Complications</td>
+                                    <td>Preterm birth, low birth weight</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Public Health Impact:</strong>
+                            <p>Often overlooked but has significant morbidity and facilitates HIV transmission</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1546,7 +1752,7 @@
                         </tr>
                         <tr>
                             <td><strong>NAAT</strong></td>
-                            <td>&gt;95%</td>
+                            <td>>95%</td>
                             <td>Highly sensitive</td>
                             <td>Cost, availability</td>
                         </tr>
@@ -1559,57 +1765,69 @@
                     </tbody>
                 </table>
 
-                <h3>Wet Mount Technique</h3>
-                <ol>
-                    <li>Mix vaginal discharge with saline</li>
-                    <li>Examine immediately (within 10 minutes)</li>
-                    <li>Look for motile, flagellated organisms</li>
-                    <li>Trichomonads are pear-shaped, 10-20 μm</li>
-                </ol>
-
-                <div class="warning">
-                    <strong>Critical:</strong>
-                    <p>Sensitivity decreases to 20% after 1 hour - immediate examination essential</p>
+                <div class="two-columns" style="margin-top: 20px;">
+                    <div>
+                        <h3>Wet Mount Technique</h3>
+                        <ol class="compact">
+                            <li>Mix vaginal discharge with saline</li>
+                            <li>Examine immediately (within 10 minutes)</li>
+                            <li>Look for motile, flagellated organisms</li>
+                            <li>Trichomonads are pear-shaped, 10-20 μm</li>
+                        </ol>
+                    </div>
+                    <div class="warning">
+                        <strong>Critical:</strong>
+                        <p>Sensitivity decreases to 20% after 1 hour - immediate examination essential</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 27: Trichomoniasis Advanced Testing -->
+        <!-- Slide 27: Trichomoniasis Culture and NAAT -->
         <div class="slide">
             <div class="slide-header-box">
                 <div class="slide-number">Slide 27 of 45</div>
                 <h2>Trichomoniasis: Culture and NAAT</h2>
             </div>
             <div class="content">
-                <h3>Culture Methods</h3>
-                <ul>
-                    <li><strong>InPouch TV:</strong> Self-contained system, read daily for 5 days</li>
-                    <li><strong>Diamond's medium:</strong> Traditional culture method</li>
-                    <li>Incubate at 37°C</li>
-                    <li>More sensitive than wet mount</li>
-                    <li>Allows for susceptibility testing if needed</li>
-                </ul>
-
-                <h3>NAAT Advantages</h3>
-                <ul>
-                    <li>Superior sensitivity (&gt;95%)</li>
-                    <li>Can test vaginal, endocervical, or urine specimens</li>
-                    <li>Some assays FDA-approved for male urine</li>
-                    <li>Stable specimens</li>
-                    <li>Batching possible</li>
-                </ul>
-
-                <div class="key-point">
-                    <strong>Recommendation:</strong>
-                    <p>NAAT is preferred for all symptomatic women and high-risk populations when available</p>
+                <div class="left-content">
+                    <h3>Culture Methods</h3>
+                    <ul>
+                        <li><strong>InPouch TV:</strong> Self-contained system, read daily for 5 days</li>
+                        <li><strong>Diamond's medium:</strong> Traditional culture method</li>
+                        <li>Incubate at 37°C</li>
+                        <li>More sensitive than wet mount</li>
+                        <li>Allows for susceptibility testing if needed</li>
+                    </ul>
                 </div>
-
-                <h3>Testing in Men</h3>
-                <ul>
-                    <li>Historically challenging - low sensitivity of traditional methods</li>
-                    <li>NAAT from urine now available</li>
-                    <li>Consider testing male partners of infected women</li>
-                </ul>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>NAAT Advantages</h3>
+                            <ul>
+                                <li>Superior sensitivity (>95%)</li>
+                                <li>Can test vaginal, endocervical, or urine specimens</li>
+                                <li>Some assays FDA-approved for male urine</li>
+                                <li>Stable specimens</li>
+                                <li>Batching possible</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="key-point">
+                                <strong>Recommendation:</strong>
+                                <p>NAAT is preferred for all symptomatic women and high-risk populations when available</p>
+                            </div>
+                            
+                            <h3 style="margin-top: 20px;">Testing in Men</h3>
+                            <ul class="compact">
+                                <li>Historically challenging</li>
+                                <li>NAAT from urine now available</li>
+                                <li>Consider testing male partners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1620,35 +1838,39 @@
                 <h2>Herpes Simplex Virus</h2>
             </div>
             <div class="content">
-                <h3>Key Characteristics</h3>
-                <ul>
-                    <li>Two types: HSV-1 and HSV-2</li>
-                    <li>Both can cause genital and oral infections</li>
-                    <li>Lifelong infection with recurrences</li>
-                    <li>Can be transmitted during asymptomatic shedding</li>
-                    <li>Clinical diagnosis often unreliable</li>
-                </ul>
-
-                <h3>When to Test</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div style="background: #eff6ff; padding: 20px; border-radius: 8px;">
-                        <h4>Direct Detection (Lesions)</h4>
-                        <ul>
-                            <li>Active vesicles/ulcers</li>
-                            <li>Atypical lesions</li>
-                            <li>Confirm clinical diagnosis</li>
-                            <li>Type-specific identification</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: #f0fdf4; padding: 20px; border-radius: 8px;">
-                        <h4>Serology (No Lesions)</h4>
-                        <ul>
-                            <li>Recurrent symptoms</li>
-                            <li>Partner with HSV</li>
-                            <li>HIV-positive patients</li>
-                            <li>NOT for screening</li>
-                        </ul>
+                <div class="left-content">
+                    <h3>Key Characteristics</h3>
+                    <ul>
+                        <li>Two types: HSV-1 and HSV-2</li>
+                        <li>Both can cause genital and oral infections</li>
+                        <li>Lifelong infection with recurrences</li>
+                        <li>Can be transmitted during asymptomatic shedding</li>
+                        <li>Clinical diagnosis often unreliable</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <h3>When to Test</h3>
+                    <div class="two-columns">
+                        <div style="background: #eff6ff; padding: 16px; border-radius: 8px;">
+                            <h4 style="color: #1e40af;">Direct Detection (Lesions)</h4>
+                            <ul class="compact">
+                                <li>Active vesicles/ulcers</li>
+                                <li>Atypical lesions</li>
+                                <li>Confirm clinical diagnosis</li>
+                                <li>Type-specific identification</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #f0fdf4; padding: 16px; border-radius: 8px;">
+                            <h4 style="color: #166534;">Serology (No Lesions)</h4>
+                            <ul class="compact">
+                                <li>Recurrent symptoms</li>
+                                <li>Partner with HSV</li>
+                                <li>HIV-positive patients</li>
+                                <li>NOT for screening</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1661,49 +1883,52 @@
                 <h2>HSV: Direct Detection Methods</h2>
             </div>
             <div class="content">
-                <h3>Specimen Collection</h3>
-                <ol>
-                    <li>Unroof vesicle with needle/scalpel</li>
-                    <li>Absorb vesicle fluid with swab</li>
-                    <li>Vigorously swab base of ulcer</li>
-                    <li>Place in viral transport medium</li>
-                </ol>
-
-                <h3>Detection Methods</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Method</th>
-                            <th>Sensitivity</th>
-                            <th>Advantages</th>
-                            <th>Limitations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>PCR (Preferred)</strong></td>
-                            <td>&gt;95%</td>
-                            <td>• HSV-1 vs HSV-2<br>• Quantitative available</td>
-                            <td>Cost</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Viral Culture</strong></td>
-                            <td>50-70%</td>
-                            <td>• 100% specific<br>• Typing possible</td>
-                            <td>Low sensitivity</td>
-                        </tr>
-                        <tr>
-                            <td><strong>DFA</strong></td>
-                            <td>60-70%</td>
-                            <td>• Rapid results</td>
-                            <td>Requires expertise</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="warning">
-                    <strong>Timing Matters:</strong>
-                    <p>Sensitivity decreases as lesions heal - test vesicles and early ulcers for best results</p>
+                <div class="left-content">
+                    <h3>Specimen Collection</h3>
+                    <ol>
+                        <li>Unroof vesicle with needle/scalpel</li>
+                        <li>Absorb vesicle fluid with swab</li>
+                        <li>Vigorously swab base of ulcer</li>
+                        <li>Place in viral transport medium</li>
+                    </ol>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Detection Methods</h3>
+                            <table class="small">
+                                <thead>
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>Sensitivity</th>
+                                        <th>Advantages</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>PCR</strong></td>
+                                        <td>>95%</td>
+                                        <td>HSV-1 vs HSV-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Culture</strong></td>
+                                        <td>50-70%</td>
+                                        <td>100% specific</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>DFA</strong></td>
+                                        <td>60-70%</td>
+                                        <td>Rapid results</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="warning">
+                            <strong>Timing Matters:</strong>
+                            <p>Sensitivity decreases as lesions heal - test vesicles and early ulcers for best results</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1715,41 +1940,48 @@
                 <h2>HSV: Serological Testing</h2>
             </div>
             <div class="content">
-                <h3>Type-Specific Serology</h3>
-                <ul>
-                    <li>Detects IgG antibodies to HSV-1 and HSV-2</li>
-                    <li>Based on glycoprotein G (gG-1 and gG-2)</li>
-                    <li>Takes 12 weeks to develop antibodies</li>
-                    <li>Cannot determine infection site</li>
-                </ul>
-
-                <h3>Available Tests</h3>
-                <table>
-                    <tr>
-                        <th>Test Type</th>
-                        <th>Performance</th>
-                        <th>Comments</th>
-                    </tr>
-                    <tr>
-                        <td>HerpeSelect EIA</td>
-                        <td>Sens: 96-100%<br>Spec: 96-100%</td>
-                        <td>Laboratory-based</td>
-                    </tr>
-                    <tr>
-                        <td>Western Blot</td>
-                        <td>Gold standard</td>
-                        <td>Research only</td>
-                    </tr>
-                    <tr>
-                        <td>Point-of-care</td>
-                        <td>Variable</td>
-                        <td>Not recommended</td>
-                    </tr>
-                </table>
-
-                <div class="key-point">
-                    <strong>Caution:</strong>
-                    <p>Positive serology does not indicate active infection or infectivity</p>
+                <div class="left-content">
+                    <h3>Type-Specific Serology</h3>
+                    <ul>
+                        <li>Detects IgG antibodies to HSV-1 and HSV-2</li>
+                        <li>Based on glycoprotein G (gG-1 and gG-2)</li>
+                        <li>Takes 12 weeks to develop antibodies</li>
+                        <li>Cannot determine infection site</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Available Tests</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Test Type</th>
+                                    <th>Performance</th>
+                                    <th>Comments</th>
+                                </tr>
+                                <tr>
+                                    <td>HerpeSelect EIA</td>
+                                    <td>Sens: 96-100%<br>Spec: 96-100%</td>
+                                    <td>Laboratory-based</td>
+                                </tr>
+                                <tr>
+                                    <td>Western Blot</td>
+                                    <td>Gold standard</td>
+                                    <td>Research only</td>
+                                </tr>
+                                <tr>
+                                    <td>Point-of-care</td>
+                                    <td>Variable</td>
+                                    <td>Not recommended</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Caution:</strong>
+                            <p>Positive serology does not indicate active infection or infectivity</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1761,40 +1993,47 @@
                 <h2>Human Papillomavirus (HPV)</h2>
             </div>
             <div class="content">
-                <h3>Key Facts</h3>
-                <ul>
-                    <li>&gt;150 HPV types, ~40 affect genital area</li>
-                    <li>High-risk types: 16, 18 cause 70% of cervical cancers</li>
-                    <li>Low-risk types: 6, 11 cause 90% of genital warts</li>
-                    <li>Most infections clear spontaneously within 2 years</li>
-                    <li>Persistent HR-HPV → cancer risk</li>
-                </ul>
-
-                <h3>HPV Testing Indications</h3>
-                <table>
-                    <tr>
-                        <th style="background: #dcfce7;">Recommended</th>
-                        <th style="background: #fee2e2;">NOT Recommended</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            • Cervical cancer screening<br>
-                            • ASC-US triage<br>
-                            • Post-treatment monitoring<br>
-                            • Primary screening &gt;30 years
-                        </td>
-                        <td>
-                            • Men (any site)<br>
-                            • Genital wart diagnosis<br>
-                            • Routine STI screening<br>
-                            • Women &lt;30 years (alone)
-                        </td>
-                    </tr>
-                </table>
-
-                <div class="key-point">
-                    <strong>Key Point:</strong>
-                    <p>HPV testing is for cervical cancer prevention, not STI diagnosis</p>
+                <div class="left-content">
+                    <h3>Key Facts</h3>
+                    <ul>
+                        <li>>150 HPV types, ~40 affect genital area</li>
+                        <li>High-risk types: 16, 18 cause 70% of cervical cancers</li>
+                        <li>Low-risk types: 6, 11 cause 90% of genital warts</li>
+                        <li>Most infections clear spontaneously within 2 years</li>
+                        <li>Persistent HR-HPV → cancer risk</li>
+                    </ul>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>HPV Testing Indications</h3>
+                            <table class="small">
+                                <tr>
+                                    <th style="background: #dcfce7;">Recommended</th>
+                                    <th style="background: #fee2e2;">NOT Recommended</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        • Cervical cancer screening<br>
+                                        • ASC-US triage<br>
+                                        • Post-treatment monitoring<br>
+                                        • Primary screening >30 years
+                                    </td>
+                                    <td>
+                                        • Men (any site)<br>
+                                        • Genital wart diagnosis<br>
+                                        • Routine STI screening<br>
+                                        • Women <30 years (alone)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Key Point:</strong>
+                            <p>HPV testing is for cervical cancer prevention, not STI diagnosis</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1839,8 +2078,8 @@
                     </tbody>
                 </table>
 
-                <h3>Screening Algorithms</h3>
-                <table>
+                <h3 style="margin-top: 20px;">Screening Algorithms</h3>
+                <table class="small">
                     <tr>
                         <th>Age Group</th>
                         <th>Recommended Screening</th>
@@ -1854,7 +2093,7 @@
                         <td>Co-testing every 5 years OR Cytology every 3 years</td>
                     </tr>
                     <tr>
-                        <td>&gt;65 years</td>
+                        <td>>65 years</td>
                         <td>Stop if adequate prior screening</td>
                     </tr>
                 </table>
@@ -1868,35 +2107,41 @@
                 <h2>Other STI Pathogens</h2>
             </div>
             <div class="content">
-                <h3>Mycoplasma genitalium</h3>
-                <ul>
-                    <li>Causes 15-20% of NGU in men</li>
-                    <li>Associated with PID in women</li>
-                    <li>High rates of antibiotic resistance</li>
-                    <li><strong>Testing:</strong> NAAT only - cannot be cultured</li>
-                    <li><strong>Important:</strong> Macrolide resistance &gt;50%</li>
-                </ul>
-
-                <h3>Bacterial Vaginosis</h3>
-                <ul>
-                    <li>Polymicrobial dysbiosis - not single pathogen</li>
-                    <li><strong>Amsel Criteria (3 of 4):</strong>
+                <div class="three-columns compact">
+                    <div>
+                        <h3>Mycoplasma genitalium</h3>
                         <ul>
-                            <li>Thin, homogeneous discharge</li>
-                            <li>pH &gt;4.5</li>
-                            <li>Positive whiff test</li>
-                            <li>Clue cells &gt;20%</li>
+                            <li>Causes 15-20% of NGU in men</li>
+                            <li>Associated with PID in women</li>
+                            <li>High rates of antibiotic resistance</li>
+                            <li><strong>Testing:</strong> NAAT only</li>
+                            <li><strong>Important:</strong> Macrolide resistance >50%</li>
                         </ul>
-                    </li>
-                    <li><strong>Nugent Score:</strong> 0-3 Normal, 4-6 Intermediate, 7-10 BV</li>
-                </ul>
-
-                <h3>Chancroid (Haemophilus ducreyi)</h3>
-                <ul>
-                    <li>Rare in developed countries</li>
-                    <li>Culture: Special media, &lt;80% sensitive</li>
-                    <li>PCR available in research settings</li>
-                </ul>
+                    </div>
+                    <div>
+                        <h3>Bacterial Vaginosis</h3>
+                        <ul>
+                            <li>Polymicrobial dysbiosis</li>
+                            <li><strong>Amsel Criteria (3 of 4):</strong>
+                                <ul>
+                                    <li>Thin discharge</li>
+                                    <li>pH >4.5</li>
+                                    <li>Positive whiff test</li>
+                                    <li>Clue cells >20%</li>
+                                </ul>
+                            </li>
+                            <li><strong>Nugent Score:</strong> 7-10 = BV</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Chancroid (H. ducreyi)</h3>
+                        <ul>
+                            <li>Rare in developed countries</li>
+                            <li>Culture: Special media, <80% sensitive</li>
+                            <li>PCR available in research settings</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1940,11 +2185,11 @@
                     </tbody>
                 </table>
 
-                <h3>Advantages vs Limitations</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <h3 style="margin-top: 20px;">Advantages vs Limitations</h3>
+                <div class="two-columns">
                     <div style="background: #dcfce7; padding: 15px; border-radius: 8px;">
                         <h4>Advantages</h4>
-                        <ul>
+                        <ul class="compact">
                             <li>Immediate results</li>
                             <li>Same-visit treatment</li>
                             <li>Improved patient flow</li>
@@ -1953,7 +2198,7 @@
                     </div>
                     <div style="background: #fee2e2; padding: 15px; border-radius: 8px;">
                         <h4>Limitations</h4>
-                        <ul>
+                        <ul class="compact">
                             <li>Lower sensitivity</li>
                             <li>Limited test menu</li>
                             <li>Quality control issues</li>
@@ -1971,51 +2216,58 @@
                 <h2>Multiplex PCR Panels</h2>
             </div>
             <div class="content">
-                <h3>Available Multiplex Panels</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Panel</th>
-                            <th>Pathogens Detected</th>
-                            <th>Specimen Types</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>CT/NG</strong></td>
-                            <td>C. trachomatis, N. gonorrhoeae</td>
-                            <td>Multiple sites</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Vaginal Panel</strong></td>
-                            <td>BV, Candida, Trichomonas</td>
-                            <td>Vaginal swab</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Extended STI</strong></td>
-                            <td>CT, NG, TV, MG, HSV, Syphilis</td>
-                            <td>Genital, urine</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ulcer Panel</strong></td>
-                            <td>HSV-1/2, T. pallidum, H. ducreyi</td>
-                            <td>Lesion swab</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Benefits of Multiplex Testing</h3>
-                <ul>
-                    <li>Comprehensive testing from single specimen</li>
-                    <li>Detects co-infections (common)</li>
-                    <li>Efficient laboratory workflow</li>
-                    <li>Syndrome-based approach</li>
-                    <li>Cost-effective for high-volume labs</li>
-                </ul>
-
-                <div class="key-point">
-                    <strong>Consideration:</strong>
-                    <p>Cost-effectiveness depends on local prevalence and testing volume</p>
+                <div class="left-content">
+                    <h3>Available Multiplex Panels</h3>
+                    <table class="small">
+                        <thead>
+                            <tr>
+                                <th>Panel</th>
+                                <th>Pathogens</th>
+                                <th>Specimen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CT/NG</strong></td>
+                                <td>C. trachomatis, N. gonorrhoeae</td>
+                                <td>Multiple sites</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vaginal</strong></td>
+                                <td>BV, Candida, Trichomonas</td>
+                                <td>Vaginal swab</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Extended STI</strong></td>
+                                <td>CT, NG, TV, MG, HSV, TP</td>
+                                <td>Genital, urine</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ulcer</strong></td>
+                                <td>HSV-1/2, T. pallidum, H. ducreyi</td>
+                                <td>Lesion swab</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Benefits of Multiplex Testing</h3>
+                            <ul>
+                                <li>Comprehensive testing from single specimen</li>
+                                <li>Detects co-infections (common)</li>
+                                <li>Efficient laboratory workflow</li>
+                                <li>Syndrome-based approach</li>
+                                <li>Cost-effective for high-volume labs</li>
+                            </ul>
+                        </div>
+                        <div class="key-point">
+                            <strong>Consideration:</strong>
+                            <p>Cost-effectiveness depends on local prevalence and testing volume</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2029,29 +2281,35 @@
             <div class="content">
                 <h3>Emerging Technologies</h3>
                 
-                <h4 style="color: #3b82f6;">Digital PCR</h4>
-                <ul>
-                    <li>Absolute quantification without standards</li>
-                    <li>Higher precision for low copy numbers</li>
-                    <li>Resistance mutation detection</li>
-                </ul>
+                <div class="three-columns">
+                    <div>
+                        <h4>Digital PCR</h4>
+                        <ul class="compact">
+                            <li>Absolute quantification without standards</li>
+                            <li>Higher precision for low copy numbers</li>
+                            <li>Resistance mutation detection</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Next-Generation Sequencing</h4>
+                        <ul class="compact">
+                            <li>Microbiome analysis</li>
+                            <li>Unknown pathogen identification</li>
+                            <li>Comprehensive resistance profiling</li>
+                            <li>Outbreak investigation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>AI/Machine Learning</h4>
+                        <ul class="compact">
+                            <li>Automated result interpretation</li>
+                            <li>Risk prediction algorithms</li>
+                            <li>Quality improvement</li>
+                        </ul>
+                    </div>
+                </div>
 
-                <h4 style="color: #3b82f6;">Next-Generation Sequencing (NGS)</h4>
-                <ul>
-                    <li>Microbiome analysis</li>
-                    <li>Unknown pathogen identification</li>
-                    <li>Comprehensive resistance profiling</li>
-                    <li>Outbreak investigation</li>
-                </ul>
-
-                <h4 style="color: #3b82f6;">AI/Machine Learning</h4>
-                <ul>
-                    <li>Automated result interpretation</li>
-                    <li>Risk prediction algorithms</li>
-                    <li>Quality improvement</li>
-                </ul>
-
-                <h3>Self-Collection Advances</h3>
+                <h3 style="margin-top: 30px;">Self-Collection Advances</h3>
                 <ul>
                     <li>Home testing kits with app integration</li>
                     <li>Dried blood spots for serology</li>
@@ -2100,17 +2358,20 @@
                     </tbody>
                 </table>
 
-                <h3>Laboratory Network</h3>
-                <ul>
-                    <li>Reference laboratories for confirmatory testing</li>
-                    <li>Regional labs for routine screening</li>
-                    <li>Point-of-care in remote areas</li>
-                    <li>Quality assurance program mandatory</li>
-                </ul>
-
-                <div class="key-point">
-                    <strong>Integration:</strong>
-                    <p>Laboratory results linked to HESN surveillance system for real-time monitoring</p>
+                <div class="two-columns" style="margin-top: 20px;">
+                    <div>
+                        <h3>Laboratory Network</h3>
+                        <ul class="compact">
+                            <li>Reference laboratories for confirmatory testing</li>
+                            <li>Regional labs for routine screening</li>
+                            <li>Point-of-care in remote areas</li>
+                            <li>Quality assurance program mandatory</li>
+                        </ul>
+                    </div>
+                    <div class="key-point">
+                        <strong>Integration:</strong>
+                        <p>Laboratory results linked to HESN surveillance system for real-time monitoring</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2122,48 +2383,56 @@
                 <h2>Case Study 1: Syphilis Diagnosis</h2>
             </div>
             <div class="content">
-                <h3>Clinical Scenario</h3>
-                <ul>
-                    <li><strong>Patient:</strong> 28-year-old male</li>
-                    <li><strong>Presentation:</strong> Painless genital ulcer for 1 week</li>
-                    <li><strong>History:</strong> New sexual partner 3 weeks ago</li>
-                </ul>
+                <div class="left-content">
+                    <h3>Clinical Scenario</h3>
+                    <ul>
+                        <li><strong>Patient:</strong> 28-year-old male</li>
+                        <li><strong>Presentation:</strong> Painless genital ulcer for 1 week</li>
+                        <li><strong>History:</strong> New sexual partner 3 weeks ago</li>
+                    </ul>
 
-                <h3>Laboratory Approach</h3>
-                <ol>
-                    <li>Direct detection: Swab ulcer for darkfield or PCR</li>
-                    <li>Serology: RPR and TPPA</li>
-                    <li>Additional: HIV, HSV PCR (rule out)</li>
-                </ol>
-
-                <h3>Results</h3>
-                <table>
-                    <tr>
-                        <th>Test</th>
-                        <th>Result</th>
-                    </tr>
-                    <tr>
-                        <td>Darkfield microscopy</td>
-                        <td>Positive for spirochetes</td>
-                    </tr>
-                    <tr>
-                        <td>RPR</td>
-                        <td>Reactive 1:32</td>
-                    </tr>
-                    <tr>
-                        <td>TPPA</td>
-                        <td>Positive</td>
-                    </tr>
-                    <tr>
-                        <td>HIV</td>
-                        <td>Negative</td>
-                    </tr>
-                </table>
-
-                <h3>Diagnosis & Action</h3>
-                <p><strong>Diagnosis:</strong> Primary syphilis<br>
-                <strong>Treatment:</strong> Benzathine penicillin G 2.4 MU IM single dose<br>
-                <strong>Follow-up:</strong> RPR at 6 and 12 months</p>
+                    <h3 style="margin-top: 20px;">Laboratory Approach</h3>
+                    <ol>
+                        <li>Direct detection: Swab ulcer for darkfield or PCR</li>
+                        <li>Serology: RPR and TPPA</li>
+                        <li>Additional: HIV, HSV PCR (rule out)</li>
+                    </ol>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Results</h3>
+                            <table class="small">
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                </tr>
+                                <tr>
+                                    <td>Darkfield microscopy</td>
+                                    <td>Positive for spirochetes</td>
+                                </tr>
+                                <tr>
+                                    <td>RPR</td>
+                                    <td>Reactive 1:32</td>
+                                </tr>
+                                <tr>
+                                    <td>TPPA</td>
+                                    <td>Positive</td>
+                                </tr>
+                                <tr>
+                                    <td>HIV</td>
+                                    <td>Negative</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="key-point">
+                            <strong>Diagnosis:</strong> Primary syphilis<br>
+                            <strong>Treatment:</strong> Benzathine penicillin G 2.4 MU IM<br>
+                            <strong>Follow-up:</strong> RPR at 6 and 12 months
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2174,33 +2443,45 @@
                 <h2>Case Study 2: Persistent Urethritis</h2>
             </div>
             <div class="content">
-                <h3>Clinical Scenario</h3>
-                <ul>
-                    <li><strong>Patient:</strong> 25-year-old male</li>
-                    <li><strong>Presentation:</strong> Persistent urethral discharge after treatment</li>
-                    <li><strong>History:</strong> Treated for gonorrhea 3 weeks ago</li>
-                </ul>
+                <div class="left-content">
+                    <h3>Clinical Scenario</h3>
+                    <ul>
+                        <li><strong>Patient:</strong> 25-year-old male</li>
+                        <li><strong>Presentation:</strong> Persistent urethral discharge after treatment</li>
+                        <li><strong>History:</strong> Treated for gonorrhea 3 weeks ago</li>
+                    </ul>
 
-                <h3>Initial Testing</h3>
-                <ul>
-                    <li>CT/NG NAAT: Both negative</li>
-                    <li>Gram stain: WBCs, no organisms</li>
-                </ul>
+                    <h3 style="margin-top: 20px;">Initial Testing</h3>
+                    <ul>
+                        <li>CT/NG NAAT: Both negative</li>
+                        <li>Gram stain: WBCs, no organisms</li>
+                    </ul>
 
-                <h3>Additional Testing</h3>
-                <ol>
-                    <li><strong>M. genitalium NAAT</strong> - Common cause of persistent NGU</li>
-                    <li><strong>T. vaginalis NAAT</strong> - Can cause urethritis in men</li>
-                    <li><strong>HSV PCR</strong> - If any lesions</li>
-                </ol>
-
-                <h3>Results & Management</h3>
-                <ul>
-                    <li><strong>M. genitalium:</strong> Positive</li>
-                    <li><strong>Resistance testing:</strong> Macrolide resistant</li>
-                    <li><strong>Treatment:</strong> Moxifloxacin 400mg daily × 7 days</li>
-                    <li><strong>Partner notification:</strong> Essential</li>
-                </ul>
+                    <h3 style="margin-top: 20px;">Additional Testing</h3>
+                    <ol class="compact">
+                        <li><strong>M. genitalium NAAT</strong> - Common cause of persistent NGU</li>
+                        <li><strong>T. vaginalis NAAT</strong> - Can cause urethritis in men</li>
+                        <li><strong>HSV PCR</strong> - If any lesions</li>
+                    </ol>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Results & Management</h3>
+                            <ul>
+                                <li><strong>M. genitalium:</strong> Positive</li>
+                                <li><strong>Resistance testing:</strong> Macrolide resistant</li>
+                                <li><strong>Treatment:</strong> Moxifloxacin 400mg daily × 7 days</li>
+                                <li><strong>Partner notification:</strong> Essential</li>
+                            </ul>
+                        </div>
+                        <div class="warning">
+                            <strong>Key Learning:</strong>
+                            <p>Consider M. genitalium in persistent NGU. Resistance is common - consider resistance-guided therapy.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2218,7 +2499,7 @@
                     <li><strong>History:</strong> No STI symptoms</li>
                 </ul>
 
-                <h3>Testing & Results</h3>
+                <h3 style="margin-top: 20px;">Testing & Results</h3>
                 <table>
                     <thead>
                         <tr>
@@ -2256,7 +2537,7 @@
                     </tbody>
                 </table>
 
-                <div class="warning">
+                <div class="warning" style="margin-top: 20px;">
                     <strong>Critical:</strong>
                     <p>Untreated syphilis in pregnancy → 40% risk of congenital syphilis. Immediate treatment essential!</p>
                 </div>
@@ -2303,18 +2584,21 @@
                     </tbody>
                 </table>
 
-                <h3>When to Reject Specimens</h3>
-                <ul>
-                    <li>Unlabeled or mislabeled</li>
-                    <li>Wrong transport medium</li>
-                    <li>Excessive transport time</li>
-                    <li>Visible contamination</li>
-                    <li>Insufficient quantity</li>
-                </ul>
-
-                <div class="key-point">
-                    <strong>Best Practice:</strong>
-                    <p>Communicate with clinical team before rejecting irreplaceable specimens</p>
+                <div class="two-columns" style="margin-top: 20px;">
+                    <div>
+                        <h3>When to Reject Specimens</h3>
+                        <ul class="compact">
+                            <li>Unlabeled or mislabeled</li>
+                            <li>Wrong transport medium</li>
+                            <li>Excessive transport time</li>
+                            <li>Visible contamination</li>
+                            <li>Insufficient quantity</li>
+                        </ul>
+                    </div>
+                    <div class="key-point">
+                        <strong>Best Practice:</strong>
+                        <p>Communicate with clinical team before rejecting irreplaceable specimens</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2326,26 +2610,33 @@
                 <h2>Key Laboratory Messages</h2>
             </div>
             <div class="content">
-                <h3>Critical Points to Remember</h3>
-                <ol style="font-size: 20px; line-height: 2;">
-                    <li><strong>NAAT is preferred</strong> for CT, NG, TV, MG when available</li>
-                    <li><strong>Syphilis requires two tests</strong> - treponemal + non-treponemal</li>
-                    <li><strong>Culture is essential</strong> for antimicrobial resistance monitoring</li>
-                    <li><strong>Specimen quality</strong> determines test performance</li>
-                    <li><strong>Extragenital testing</strong> based on sexual practices</li>
-                </ol>
-
-                <h3>Common Pitfalls to Avoid</h3>
-                <ul>
-                    <li>Using treponemal tests to monitor syphilis treatment</li>
-                    <li>Testing too soon after exposure (window period)</li>
-                    <li>Ignoring pre-analytical requirements</li>
-                    <li>Not confirming positive screening tests</li>
-                    <li>Poor communication with clinicians</li>
-                </ul>
-
-                <div class="key-point">
-                    <strong>Excellence in STI testing requires continuous education and quality improvement</strong>
+                <div class="left-content">
+                    <h3>Critical Points to Remember</h3>
+                    <ol style="font-size: 18px; line-height: 1.8;">
+                        <li><strong>NAAT is preferred</strong> for CT, NG, TV, MG when available</li>
+                        <li><strong>Syphilis requires two tests</strong> - treponemal + non-treponemal</li>
+                        <li><strong>Culture is essential</strong> for antimicrobial resistance monitoring</li>
+                        <li><strong>Specimen quality</strong> determines test performance</li>
+                        <li><strong>Extragenital testing</strong> based on sexual practices</li>
+                    </ol>
+                </div>
+                
+                <div class="full-width-content">
+                    <div class="two-columns">
+                        <div>
+                            <h3>Common Pitfalls to Avoid</h3>
+                            <ul>
+                                <li>Using treponemal tests to monitor syphilis treatment</li>
+                                <li>Testing too soon after exposure (window period)</li>
+                                <li>Ignoring pre-analytical requirements</li>
+                                <li>Not confirming positive screening tests</li>
+                                <li>Poor communication with clinicians</li>
+                            </ul>
+                        </div>
+                        <div class="key-point">
+                            <strong>Excellence in STI testing requires continuous education and quality improvement</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2357,30 +2648,36 @@
                 <h2>Resources and References</h2>
             </div>
             <div class="content">
-                <h3>Key Guidelines</h3>
-                <ul>
-                    <li>Saudi MOH STI Treatment Guidelines 2024</li>
-                    <li>WHO Laboratory Manual for STI Diagnosis</li>
-                    <li>CDC STI Treatment Guidelines 2021</li>
-                    <li>BASHH UK Testing Guidelines</li>
-                    <li>IUSTI Global Guidelines</li>
-                </ul>
-
-                <h3>Professional Organizations</h3>
-                <ul>
-                    <li>Saudi Society for Clinical Microbiology</li>
-                    <li>International Union against STIs (IUSTI)</li>
-                    <li>American Society for Microbiology (ASM)</li>
-                    <li>Clinical and Laboratory Standards Institute (CLSI)</li>
-                </ul>
-
-                <h3>Continuing Education</h3>
-                <ul>
-                    <li>Annual Saudi STI symposium</li>
-                    <li>WHO online training modules</li>
-                    <li>International proficiency programs</li>
-                    <li>Manufacturer training programs</li>
-                </ul>
+                <div class="three-columns">
+                    <div>
+                        <h3>Key Guidelines</h3>
+                        <ul class="compact">
+                            <li>Saudi MOH STI Treatment Guidelines 2024</li>
+                            <li>WHO Laboratory Manual for STI Diagnosis</li>
+                            <li>CDC STI Treatment Guidelines 2021</li>
+                            <li>BASHH UK Testing Guidelines</li>
+                            <li>IUSTI Global Guidelines</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Professional Organizations</h3>
+                        <ul class="compact">
+                            <li>Saudi Society for Clinical Microbiology</li>
+                            <li>International Union against STIs (IUSTI)</li>
+                            <li>American Society for Microbiology (ASM)</li>
+                            <li>Clinical and Laboratory Standards Institute (CLSI)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Continuing Education</h3>
+                        <ul class="compact">
+                            <li>Annual Saudi STI symposium</li>
+                            <li>WHO online training modules</li>
+                            <li>International proficiency programs</li>
+                            <li>Manufacturer training programs</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2392,7 +2689,7 @@
             </div>
             <div class="content">
                 <h3>Key Takeaways</h3>
-                <ol style="font-size: 20px; line-height: 2;">
+                <ol style="font-size: 18px; line-height: 1.8;">
                     <li>Accurate laboratory diagnosis guides appropriate treatment</li>
                     <li>Different pathogens require different diagnostic approaches</li>
                     <li>Quality is essential at every step - pre-analytical to post-analytical</li>
@@ -2401,8 +2698,8 @@
                     <li>Integration with public health surveillance is essential</li>
                 </ol>
 
-                <h3>Call to Action</h3>
-                <ul style="font-size: 20px; line-height: 2;">
+                <h3 style="margin-top: 30px;">Call to Action</h3>
+                <ul style="font-size: 18px; line-height: 1.8;">
                     <li>Implement best practices in your laboratory</li>
                     <li>Participate in quality assurance programs</li>
                     <li>Collaborate with clinical teams</li>
@@ -2410,7 +2707,7 @@
                     <li>Continue professional development</li>
                 </ul>
 
-                <div class="key-point">
+                <div class="key-point" style="margin-top: 30px;">
                     <strong>Together, we can achieve STI control through laboratory excellence</strong>
                 </div>
             </div>
